@@ -5,8 +5,9 @@ const App: React.FC = () => {
   return (
     <div className="App">
       <Button>Hello</Button>
-      <Button btnType={ButtonType.Primary} size={ButtonSize.Large}>Hello</Button>
-      <Button btnType={ButtonType.Link} href="https://www.baidu.com">Hello Link</Button>
+      <Button btnType={ButtonType.Primary} size={ButtonSize.Large}>Large Primary</Button>
+      <Button btnType={ButtonType.Primary} disabled >Hello</Button>
+      <Button btnType={ButtonType.Link} href="https://www.baidu.com" disabled>Hello Link</Button>
     </div>
   );
 }
