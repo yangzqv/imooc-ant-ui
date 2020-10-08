@@ -4,10 +4,18 @@ import Button, { ButtonType, ButtonSize } from './components/Button/button';
 const App: React.FC = () => {
   return (
     <div className="App">
-      <Button>Hello</Button>
-      <Button btnType={ButtonType.Primary} size={ButtonSize.Large}>Large Primary</Button>
-      <Button btnType={ButtonType.Primary} disabled >Hello</Button>
-      <Button btnType={ButtonType.Link} href="https://www.baidu.com" disabled>Hello Link</Button>
+      <p>
+        <Button>Hello</Button>
+      </p>
+      <p>
+        <Button btnType={ButtonType.Primary} size={ButtonSize.Large} onClick={() => alert('你好啊！')}>Large Primary</Button>
+      </p>
+      <p>
+        <Button btnType={ButtonType.Primary} disabled >Hello</Button>
+      </p>
+      <p>
+        <Button btnType={ButtonType.Link} href="https://www.baidu.com" disabled>Hello Link</Button>
+      </p>
     </div>
   );
 }
