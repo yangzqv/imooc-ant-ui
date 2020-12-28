@@ -20,10 +20,10 @@ const App: React.FC = () => {
       </p>
 
       <br /><br />
-      <Menu>
-        <MenuItem>link one</MenuItem>
-        <MenuItem>link two</MenuItem>
-        <MenuItem>link three</MenuItem>
+      <Menu defaultIndex={0} onSelect={(curIndex) => {console.log(curIndex)}}>
+        <MenuItem index={0} disabled>link one</MenuItem>
+        <MenuItem index={1}>link two</MenuItem>
+        <MenuItem index={2}>link three</MenuItem>
       </Menu>
     </div>
   );
