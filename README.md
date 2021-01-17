@@ -45,11 +45,21 @@
   * Enzyme
 
 ## React Testing Library
+- 理念
+  * 测试案例越贴近使用者的使用方法，测试结果就越准确。所以它的api一般都是直接通过渲染元素的内容取得的节点，而不是通过class/id。
+  * data-testid
+  * getByTestId
 - @testing-library/react
   * render(): 将元素挂载到真实dom上。
-  * fireEvent(): 触发不同的用户事件。
+  * RenderResult
+  * beforeEach
+  * fireEvent: 触发不同的用户事件。
+  * cleanUp()
+  * 在每个case结束都会自动调用cleanUp方法，清除干净。
 - @testing-library/jest-dom
   * 为Jest断言库添加了更多的matchers(匹配器)，主要针对dom操作。
+- @testing-library/user-event
+  * userEvent
 
 ## test步骤
 - 设置测试属性
