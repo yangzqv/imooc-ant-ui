@@ -1,5 +1,6 @@
 import React, { useState, createContext, FC, CSSProperties, ReactNode } from 'react';
 import classNames from 'classnames';
+import { MenuItemProps } from './menuItem';
 
 type MenuMode = 'horizontal' | 'vertical';
 type SelectCallback = (selectedIndex: number) => void;
@@ -42,10 +43,32 @@ const Menu: FC<MenuProps> = props => {
     onSelect: handleClick
   }
 
+  // 操控children，指定元素类型。
+  // 不能在children上直接使用map，在react文档中，children是一个不透明的数据结构，
+  // 从本质上将props.children可以是任何的类型，数组，函数，对象。。。
+  // https://zh-hans.reactjs.org/docs/react-api.html#reactchildren
+  // react 内置的静态属性 displayName
+  // ReactNode包含了很多类型
+  // 想办法把某个属性汇入到实例中
+  // https://zh-hans.reactjs.org/docs/react-api.html#reactchildren cloneElement()
+  const renderChildren = () => {
+    return React.Children.map(children, (child, index) => {
+      const childElement = child as React.FunctionComponentElement<MenuItemProps>;
+      const { displayName } = childElement.type;
+
+      if (displayName === 'MenuItem') {
+        // return child;
+        return React.cloneElement(childElement, { index });
+      } else {
+        console.error('Warning: which is not a MenuItem component');
+      }
+    })
+  }
+
   return (
     <ul className={classes} style={style} data-testid="test-menu">
       <MenuContext.Provider value={passedContext}>
-        {children}
+        {renderChildren()}
       </MenuContext.Provider>
     </ul>
   );
