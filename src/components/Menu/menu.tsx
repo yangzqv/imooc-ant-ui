@@ -33,6 +33,7 @@ const Menu: FC<MenuProps> = props => {
 
   const classes = classNames('viking-menu', className, {
     'menu-vertical': mode === 'vertical',
+    'menu-horizontal': mode !== 'vertical'
   });
   const handleClick = (index: number) => {
     setCurActive(index);
