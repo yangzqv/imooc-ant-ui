@@ -1,28 +1,8 @@
-import React, { useState, createContext, FC, CSSProperties } from 'react';
+import React, { useState } from 'react';
 import classNames from 'classnames';
-import { MenuItemProps } from './menuItem';
+import { MenuProps, IMenuContext, MenuItemProps, menuContext } from './menuProps';
 
-type MenuMode = 'horizontal' | 'vertical';
-type SelectCallback = (selectedIndex: string) => void;
-
-export interface MenuProps {
-  defaultIndex?: string;
-  className?: string;
-  mode?: MenuMode;
-  style?: CSSProperties;
-  onSelect?: SelectCallback; // 用户可能会通过回调做一些自定义操作
-  defaultOpenSubMenus?: string[]
-}
-
-interface IMenuContext {
-  index: string;
-  onSelect?: SelectCallback;
-  mode?: MenuMode;
-  defaultOpenSubMenus?: string[]
-}
-export const MenuContext = createContext<IMenuContext>({index: '0'});
-
-const Menu: FC<MenuProps> = props => {
+const Menu: React.FC<MenuProps> = props => {
   const {
     defaultIndex,
     className,
@@ -73,9 +53,9 @@ const Menu: FC<MenuProps> = props => {
 
   return (
     <ul className={classes} style={style} data-testid="test-menu">
-      <MenuContext.Provider value={passedContext}>
+      <menuContext.Provider value={passedContext}>
         {renderChildren()}
-      </MenuContext.Provider>
+      </menuContext.Provider>
     </ul>
   );
 }

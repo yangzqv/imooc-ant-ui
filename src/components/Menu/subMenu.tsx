@@ -1,14 +1,6 @@
 import React, { useContext, useState, } from 'react';
 import classNames from 'classnames';
-import { MenuContext } from './menu';
-import { MenuItemProps } from './menuItem';
-
-export interface SubMenuProps {
-  index?: string;
-  title: string;
-  className?: string;
-  style?: React.CSSProperties;
-}
+import { MenuItemProps, SubMenuProps, menuContext } from './menuProps';
 
 const SubMenu: React.FC<SubMenuProps> = props => {
   const {
@@ -18,7 +10,7 @@ const SubMenu: React.FC<SubMenuProps> = props => {
     style,
     children
   } = props
-  const context = useContext(MenuContext);
+  const context = useContext(menuContext);
   const opendSubMenus = context.defaultOpenSubMenus as Array<string>;
   const isOpend = (index && context.mode === 'vertical') ? opendSubMenus.includes(index) : false;
   const [menuOpen, setMenuOpen] = useState(isOpend);

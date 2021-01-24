@@ -90,5 +90,6 @@
   * getElementsByTagName: 不分层次，会拿到对应的所有节点。
   * :scope
   * getByText和queryByText的区别: queryByText可能会返回null
-  * toBeVisible是否可见
-  * Wait for appearance, Wait for disappearance
+  * toBeVisible节点是否可见
+  * Wait for appearance, Wait for disappearance（wait处理异步操作）
+  * 动态给测试添加样式
