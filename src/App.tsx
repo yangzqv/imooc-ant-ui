@@ -11,19 +11,12 @@ const App: React.FC = () => {
         <Button>Hello</Button>
         <Button btnType={ButtonType.Primary} size={ButtonSize.Large} onClick={() => alert('你好啊！')}>Large Primary</Button>
         <Button btnType={ButtonType.Primary} disabled >Hello</Button>
+        <Button btnType={ButtonType.Danger}>World</Button>
         <Button btnType={ButtonType.Link} href="https://www.baidu.com" disabled>Hello Link</Button>
       </div>
       <div>
         <br /><br />
-        <Menu defaultIndex={0} mode="vertical" onSelect={(curIndex) => {console.log(curIndex)}}>
-          <MenuItem>link one</MenuItem>
-          <MenuItem disabled>link two</MenuItem>
-          <MenuItem>link three</MenuItem>
-        </Menu>
-      </div>
-      <div>
-        <br /><br />
-        <Menu defaultIndex={0} mode="vertical">
+        <Menu defaultIndex="0" mode="vertical" onSelect={(curIndex) => {console.log(curIndex)}} defaultOpenSubMenus={['3']}>
           <MenuItem>link one</MenuItem>
           <MenuItem disabled>link two</MenuItem>
           <MenuItem>link three</MenuItem>

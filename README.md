@@ -85,3 +85,10 @@
 - 查到元素：通过元素的文本来对比是否为相应的元素
   * toBeTruthy()，判断是否正确。
   * toBeInTheDocument()，jest-dom提供的方法，判断元素是否在文档中。
+
+## 临时
+  * getElementsByTagName: 不分层次，会拿到对应的所有节点。
+  * :scope
+  * getByText和queryByText的区别: queryByText可能会返回null
+  * toBeVisible是否可见
+  * Wait for appearance, Wait for disappearance

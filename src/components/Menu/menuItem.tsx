@@ -3,7 +3,7 @@ import classNames from 'classnames';
 import { MenuContext } from './menu';
 
 export interface MenuItemProps {
-  index?: number; // 第几项，用来和defaultIndex作比较，进行高亮显示。
+  index?: string; // 第几项，用来和defaultIndex作比较，进行高亮显示。
   disabled?: boolean;
   className?: string;
   style?: CSSProperties;
@@ -25,7 +25,7 @@ const MenuItem: FC<MenuItemProps> = props => {
     'is-active': index === context.index
   });
   const handleClick = () => {
-    if (context.onSelect && !disabled && (typeof index === 'number')) {
+    if (context.onSelect && !disabled && (typeof index === 'string')) {
       context.onSelect(index);
     }
   }

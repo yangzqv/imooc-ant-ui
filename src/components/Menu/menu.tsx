@@ -1,24 +1,26 @@
-import React, { useState, createContext, FC, CSSProperties, ReactNode } from 'react';
+import React, { useState, createContext, FC, CSSProperties } from 'react';
 import classNames from 'classnames';
 import { MenuItemProps } from './menuItem';
 
 type MenuMode = 'horizontal' | 'vertical';
-type SelectCallback = (selectedIndex: number) => void;
+type SelectCallback = (selectedIndex: string) => void;
 
 export interface MenuProps {
-  defaultIndex?: number;
+  defaultIndex?: string;
   className?: string;
   mode?: MenuMode;
   style?: CSSProperties;
   onSelect?: SelectCallback; // 用户可能会通过回调做一些自定义操作
-  children?: ReactNode;
+  defaultOpenSubMenus?: string[]
 }
 
 interface IMenuContext {
-  index: number;
+  index: string;
   onSelect?: SelectCallback;
+  mode?: MenuMode;
+  defaultOpenSubMenus?: string[]
 }
-export const MenuContext = createContext<IMenuContext>({index: 0});
+export const MenuContext = createContext<IMenuContext>({index: '0'});
 
 const Menu: FC<MenuProps> = props => {
   const {
@@ -27,7 +29,8 @@ const Menu: FC<MenuProps> = props => {
     mode,
     style,
     children,
-    onSelect
+    onSelect,
+    defaultOpenSubMenus
   } = props;
   const [curActive, setCurActive] = useState(defaultIndex);
 
@@ -35,13 +38,15 @@ const Menu: FC<MenuProps> = props => {
     'menu-vertical': mode === 'vertical',
     'menu-horizontal': mode !== 'vertical'
   });
-  const handleClick = (index: number) => {
+  const handleClick = (index: string) => {
     setCurActive(index);
     onSelect && onSelect(index);
   }
   const passedContext: IMenuContext = {
-    index: curActive || 0,
-    onSelect: handleClick
+    index: curActive || '0',
+    onSelect: handleClick,
+    mode,
+    defaultOpenSubMenus
   }
 
   // 操控children，指定元素类型。
@@ -59,7 +64,7 @@ const Menu: FC<MenuProps> = props => {
 
       if (displayName === 'MenuItem' || displayName === 'SubMenu') {
         // return child;
-        return React.cloneElement(childElement, { index });
+        return React.cloneElement(childElement, { index: index.toString() });
       } else {
         console.error('Warning: which is not a MenuItem component');
       }
@@ -76,8 +81,9 @@ const Menu: FC<MenuProps> = props => {
 }
 
 Menu.defaultProps = {
-  defaultIndex: 0,
-  mode: 'horizontal'
+  defaultIndex: '0',
+  mode: 'horizontal',
+  defaultOpenSubMenus: []
 }
 
 export default Menu;
