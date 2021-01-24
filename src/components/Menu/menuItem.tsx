@@ -3,7 +3,7 @@ import classNames from 'classnames';
 import { MenuContext } from './menu';
 
 export interface MenuItemProps {
-  index: number; // 第几项，用来和defaultIndex作比较，进行高亮显示。
+  index?: number; // 第几项，用来和defaultIndex作比较，进行高亮显示。
   disabled?: boolean;
   className?: string;
   style?: CSSProperties;
