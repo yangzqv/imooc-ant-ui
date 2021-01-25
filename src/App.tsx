@@ -4,9 +4,13 @@ import Menu from './components/Menu/menu';
 import MenuItem from './components/Menu/menuItem';
 import SubMenu from './components/Menu/subMenu';
 
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCoffee } from '@fortawesome/free-solid-svg-icons'
+
 const App: React.FC = () => {
   return (
     <div className="App">
+      <FontAwesomeIcon icon={faCoffee} />
       <div>
         <Button>Hello</Button>
         <Button btnType={ButtonType.Primary} size={ButtonSize.Large} onClick={() => alert('你好啊！')}>Large Primary</Button>

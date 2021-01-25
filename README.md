@@ -93,3 +93,14 @@
   * toBeVisible节点是否可见
   * Wait for appearance, Wait for disappearance（wait处理异步操作）
   * 动态给测试添加样式
+
+## 图标
+  * 雪碧图 background-position，不能缩放，不能使用css控制。
+  * Font icon：用字体文件的字符编码代表一个图标，通过特定的class和伪类插入到浏览器中。
+  * SVG：完全可控，可以用任何的css来控制，即取即用。Font icon要下载全部字体文件。
+    * font awesome with js
+
+## font awesome
+  * yarn add @fortawesome/fontawesome-svg-core
+  * yarn add @fortawesome/free-solid-svg-icons
+  * yarn add @fortawesome/react-fontawesome
