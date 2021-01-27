@@ -1,6 +1,8 @@
 import React, { useContext, useState, } from 'react';
 import classNames from 'classnames';
+import { CSSTransition } from 'react-transition-group';
 import { MenuItemProps, SubMenuProps, menuContext } from './menuProps';
+import Icon  from '../Icon/icon';
 
 const SubMenu: React.FC<SubMenuProps> = props => {
   const {
@@ -16,7 +18,9 @@ const SubMenu: React.FC<SubMenuProps> = props => {
   const [menuOpen, setMenuOpen] = useState(isOpend);
 
   const classes = classNames('menu-item submenu-item', className, {
-    'is-active': context.index === index
+    'is-active': context.index === index,
+    'is-vertical': context.mode === 'vertical',
+    'is-opened': menuOpen
   });
   let timer: any; // 让关闭/打开更平滑
 
@@ -54,7 +58,15 @@ const SubMenu: React.FC<SubMenuProps> = props => {
     });
 
     return (
-      <ul className={subMenuClasses}>{childrenComponent}</ul>
+      <CSSTransition
+        in={menuOpen}
+        timeout={300}
+        classNames="zoom-in-top"
+        appear
+        unmountOnExit
+      >
+        <ul className={subMenuClasses}>{childrenComponent}</ul>
+      </CSSTransition>
     )
   }
 
@@ -65,7 +77,10 @@ const SubMenu: React.FC<SubMenuProps> = props => {
       className={classes}
       {...hoverEvents}
     >
-      <div className='submenu-title' {...clickEvents}>{title}</div>
+      <div className='submenu-title' {...clickEvents}>
+        {title}
+        <Icon icon="angle-down" className="arrow-icon"/>
+      </div>
       {renderChildren()}
     </li>
   )

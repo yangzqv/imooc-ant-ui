@@ -12,7 +12,7 @@ library.add(fas);
 const App: React.FC = () => {
   return (
     <div className="App">
-      <Icon icon="angry" />
+      <Icon icon="ankh" theme="warning" size="3x" />
       <div>
         <Button>Hello</Button>
         <Button btnType={ButtonType.Primary} size={ButtonSize.Large} onClick={() => alert('你好啊！')}>Large Primary</Button>
@@ -22,7 +22,7 @@ const App: React.FC = () => {
       </div>
       <div>
         <br /><br />
-        <Menu defaultIndex="0" mode="vertical" onSelect={(curIndex) => {console.log(curIndex)}} defaultOpenSubMenus={['3']}>
+        <Menu defaultIndex="0" mode="horizontal" onSelect={(curIndex) => {console.log(curIndex)}} defaultOpenSubMenus={['3']}>
           <MenuItem>link one</MenuItem>
           <MenuItem disabled>link two</MenuItem>
           <MenuItem>link three</MenuItem>

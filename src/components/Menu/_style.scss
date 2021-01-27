@@ -52,7 +52,7 @@
   }
 
   .viking-submenu {
-    display: none;
+    // display: none;
     // transition: $menu-transition;
     list-style: none;
     padding-left: 0;
@@ -68,9 +68,9 @@
       }
     }
 
-    &.menu-opened {
-      display: block;
-    }
+    // &.menu-opened {
+    //   display: block;
+    // }
   }
 
   .is-vertical {

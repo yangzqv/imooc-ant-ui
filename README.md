@@ -106,3 +106,10 @@
   * yarn add @fortawesome/react-fontawesome
 
   * yarn add @fortawesome/free-brands-svg-icons
+
+## React中的动画
+  * 纯css，transform，transition
+    * display从none转换成block时，其他的动画会失效。display不是一个支持animation的属性。
+  * ReactTransitionGroup
+    * 是一个轻量级的库，不会增加代码的大小。只是使用不同的class来区分组件进入和离开dom的阶段。
+    * 所以，可以自行添加不同的样式来实现动画效果。
