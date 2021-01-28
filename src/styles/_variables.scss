@@ -1,3 +1,5 @@
+// 各种变量及可配置设置
+// !default 如果在此之前变量已经赋值，那就不使用默认值，如果没有赋值，则使用默认值。
 $white:    #fff !default;
 $gray-100: #f8f9fa !default;
 $gray-200: #e9ecef !default;

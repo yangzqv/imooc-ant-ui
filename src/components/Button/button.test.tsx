@@ -5,8 +5,7 @@ import userEvent from '@testing-library/user-event';
 import Button, { ButtonProps, ButtonType, ButtonSize  } from './button';
 
 const defaultProps = {
-  // jest 提供方法，用来判断 onClick 是否被追踪到
-  // 并且也可以追踪被点击了多少次 等等
+  // 捕获函数是否被调用，即创建一个被监控的模拟函数
   onClick: jest.fn()
 }
 
