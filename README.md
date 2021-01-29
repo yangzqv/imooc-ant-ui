@@ -1,6 +1,6 @@
 
-# 组件
-## 思考
+## 项目
+### 思考
   * 代码结构
   * 样式解决方案
   * 组件需求分析和编码
@@ -11,17 +11,6 @@
 https://zh-hans.reactjs.org/docs/faq-structure.html
 
 ### 样式解决方案
-```js
-  // inline CSS
-  const divStyle = {
-    color: 'blue',
-    backgroundImage: 'url(' + imgUrl + ')',
-  };
-
-  function HelloWorldComponent() {
-    return <div style={divStyle}>Hello World!</div>;
-  }
-```
 
 ```js
   // CSS in JS
@@ -39,14 +28,14 @@ https://zh-hans.reactjs.org/docs/faq-structure.html
   // sass/less
   // 提供了 变量，函数，运算。。。
 ```
-
-## Button
-### 需求分析
+## 组件
+### Button
+#### 需求分析
 ![](https://img.imgdb.cn/item/5f7dd5231cd1bbb86b7b5e8a.png)
 
 ![](https://img.imgdb.cn/item/5f7dd5b31cd1bbb86b7b7f41.png)
 
-### 思考
+#### 思考
 ```
 Q：如何通过不同的type，size显示不同的button效果？
 A：
@@ -60,14 +49,14 @@ Q：如何将自定义属性和原生属性结合起来？
 A：高级类型：交叉类型，Partial将传入的属性变为可选项
 ```
 
-# 测试
-## 重要性
+## 测试
+### 重要性
 - 高质量的代码
 - 更早的发现bug，减少成本。
 - 让重构和升级变得更加容易和可靠
 - 让开发流程更加敏捷
 
-## 框架
+### 框架
 - <a href="https://jestjs.io/zh-Hans/">Jest：项目的通用测试框架，是create-react-app的默认测试框架。</a>
 - <a href="https://zh-hans.reactjs.org/docs/test-utils.html">Test Utilities：React专用测试工具，可以把React Component渲染/挂载到测试用例上。该工具方法复杂，比较难记，使用起来效果不是很好。</a>
 - <a href="https://testing-library.com/docs/">React Testing Library: 对Test Utilities的封装，官方推荐。</a>
@@ -88,19 +77,19 @@ React Testing Library
   * userEvent
 ```
 
-## 概念
+### 概念
 - 断言：判断一个值是否对应相应/预期的一个结果，通过框架提供的api（断言库）去实现。
 - case：每一个测试用例都被称为一个case，每个case都会测试一个独立的功能点。
 - test(param1, param2): 用test函数可以表示一个case， param1表示用例名称，param2是一个回调函数，用来写用例的逻辑。
 - it(): it和test一样，都是用来描述一个case。
 - describe(): 对case进行分类。
 
-## 地址
+### 地址
 - https://create-react-app.dev/docs/running-tests
 - https://jestjs.io/docs/zh-Hans/using-matchers
 - https://github.com/facebook/create-react-app/pull/7881
 
-## 步骤
+### 步骤
 - 设置测试属性
 - case分类
 - case描述
@@ -112,7 +101,7 @@ React Testing Library
   })
 ```
 
-## 注意
+### 注意
 #### npx create-react-app --typescript
   * 支持一个setupTests.ts文件，每当运行Jest/npm run test时就会先运行该文件。
   * setupTests.ts文件: 全局测试的通用配置文件。
