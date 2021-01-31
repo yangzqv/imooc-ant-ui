@@ -2,7 +2,7 @@ import React from 'react';
 import { render } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
-import Button, { ButtonProps, ButtonType, ButtonSize  } from './button';
+import Button, { ButtonProps } from './button';
 
 const defaultProps = {
   // 捕获函数是否被调用，即创建一个被监控的模拟函数
@@ -10,8 +10,8 @@ const defaultProps = {
 }
 
 const testProps: ButtonProps = {
-  btnType: ButtonType.Primary,
-  size: ButtonSize.Large,
+  btnType: 'primary',
+  size: 'lg',
   className: 'nice'
 }
 
@@ -38,7 +38,7 @@ describe('test Button Component', () => {
     expect(element).toHaveClass('btn btn-primary btn-lg nice');
   });
   it ('should render a link when btnType equals link and href is provided', () => {
-    const wrapper = render(<Button btnType={ButtonType.Link} href="www.baidu.com">Link</Button>);
+    const wrapper = render(<Button btnType="link" href="www.baidu.com">Link</Button>);
     const element = wrapper.getByText('Link');
     expect(element).toBeInTheDocument();
     expect(element.tagName).toEqual('A');
