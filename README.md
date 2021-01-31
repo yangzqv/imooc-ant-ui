@@ -113,3 +113,13 @@ React Testing Library
 #### 查到元素：通过元素的文本来对比是否为相应的元素
   * toBeTruthy()，判断是否正确。
   * toBeInTheDocument()，jest-dom提供的方法，判断元素是否在文档中。
+#### 目前开发的痛点
+  * create-react-app入口文件不适合管理组件库
+  * 缺少行为追踪和属性调试功能
+#### 完美组件开发工具应有的特点
+  * 地址：https://storybook.js.org/
+  * 分开展示各个组件不同属性下的状态
+  * 能追踪组件的行为并且具有属性调试功能
+  * 可以为组件自动生成文档和属性列表
+  * 安装：npx -p @storybook/cli sb init
+#### 如何让storybook完美支持typescript？
