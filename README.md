@@ -122,4 +122,5 @@ React Testing Library
   * 能追踪组件的行为并且具有属性调试功能
   * 可以为组件自动生成文档和属性列表
   * 安装：npx -p @storybook/cli sb init
+  * 指定版本：npx -p @storybook/cli@5.2.8 sb init
 #### 如何让storybook完美支持typescript？
