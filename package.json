@@ -54,6 +54,7 @@
     "@storybook/node-logger": "^6.1.21",
     "@storybook/preset-create-react-app": "^3.1.6",
     "@storybook/react": "^6.1.21",
-    "@types/storybook__addon-info": "^5.2.3"
+    "@types/storybook__addon-info": "^5.2.3",
+    "react-docgen-typescript-loader": "^3.7.2"
   }
 }
