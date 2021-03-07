@@ -4,9 +4,10 @@ import classNames from 'classnames';
 type ButtonType  = 'primary' | 'default' | 'danger' | 'link';
 type ButtonSize = 'nl' | 'sm' | 'lg';
 
-interface BaseButtonProps {
+export interface BaseButtonProps {
   btnType?: ButtonType;
   size?: ButtonSize;
+  /**设置 Button 的禁用 */
   disabled?: boolean;
   href?: string;
   children?: React.ReactNode;
@@ -59,9 +60,9 @@ const Button: React.FC<ButtonProps> = props => {
 }
 
 Button.defaultProps = {
-  disabled: false,
   btnType: 'default',
   size: 'nl',
+  disabled: false
 }
 
 export default Button;
