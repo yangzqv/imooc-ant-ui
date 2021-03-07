@@ -7,7 +7,6 @@ type ButtonSize = 'nl' | 'sm' | 'lg';
 export interface BaseButtonProps {
   btnType?: ButtonType;
   size?: ButtonSize;
-  /**设置 Button 的禁用 */
   disabled?: boolean;
   href?: string;
   children?: React.ReactNode;
